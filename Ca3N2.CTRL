@@ -1,0 +1,51 @@
+HEADER    Ca24N16, cubic body-centred
+SYMGRP    NGEN=3 GENGRP=I R3D MX:(0,0,.5) 
+          SPCGRP=Ia-3 
+STRUC     ALAT=21.69141894 
+          PLAT=-.5 0.5 0.5 
+               0.5 -.5 0.5 
+               0.5 0.5 -.5 
+CLASS     ATOM=Ca1 Z=20 
+          ATOM=N1  Z= 7 
+          ATOM=N2  Z= 7 
+SITE      ATOM=Ca1 POS=0.1539 0.1176 -.1099 
+          ATOM=Ca1 POS=-.1539 -.1176 0.1099 
+          ATOM=Ca1 POS=-.1099 0.1539 0.1176 
+          ATOM=Ca1 POS=0.1099 -.1539 -.1176 
+          ATOM=Ca1 POS=0.1176 -.1099 0.1539 
+          ATOM=Ca1 POS=-.1176 0.1099 -.1539 
+          ATOM=Ca1 POS=0.3461 0.1176 0.1099 
+          ATOM=Ca1 POS=-.3461 -.1176 -.1099 
+          ATOM=Ca1 POS=0.1099 0.3461 0.1176 
+          ATOM=Ca1 POS=-.1099 -.3461 -.1176 
+          ATOM=Ca1 POS=0.1176 0.1099 0.3461 
+          ATOM=Ca1 POS=-.1176 -.1099 -.3461 
+          ATOM=Ca1 POS=0.3824 -.1099 -.1539 
+          ATOM=Ca1 POS=-.3824 0.1099 0.1539 
+          ATOM=Ca1 POS=-.1539 0.3824 -.1099 
+          ATOM=Ca1 POS=0.1539 -.3824 0.1099 
+          ATOM=Ca1 POS=-.1099 -.1539 0.3824 
+          ATOM=Ca1 POS=0.1099 0.1539 -.3824 
+          ATOM=Ca1 POS=0.3461 -.3824 -.1099 
+          ATOM=Ca1 POS=-.3461 0.3824 0.1099 
+          ATOM=Ca1 POS=0.3824 0.1099 -.3461 
+          ATOM=Ca1 POS=-.3824 -.1099 0.3461 
+          ATOM=Ca1 POS=-.1099 0.3461 -.3824 
+          ATOM=Ca1 POS=0.1099 -.3461 0.3824 
+          ATOM=N1  POS=0.2500 0.2500 0.2500 
+          ATOM=N1  POS=0.2500 0.2500 -.2500 
+          ATOM=N1  POS=0.2500 -.2500 0.2500 
+          ATOM=N1  POS=-.2500 0.2500 0.2500 
+          ATOM=N2  POS=0.2500 -.0383 0.0000 
+          ATOM=N2  POS=-.2500 0.0383 0.0000 
+          ATOM=N2  POS=0.0000 0.2500 -.0383 
+          ATOM=N2  POS=0.0000 -.2500 0.0383 
+          ATOM=N2  POS=-.0383 0.0000 0.2500 
+          ATOM=N2  POS=0.0383 0.0000 -.2500 
+          ATOM=N2  POS=0.5000 -.2500 -.0383 
+          ATOM=N2  POS=-.5000 0.2500 0.0383 
+          ATOM=N2  POS=-.0383 0.5000 -.2500 
+          ATOM=N2  POS=0.0383 -.5000 0.2500 
+          ATOM=N2  POS=0.2500 0.0383 -.5000 
+          ATOM=N2  POS=-.2500 -.0383 0.5000
+

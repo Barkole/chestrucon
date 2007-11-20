@@ -1,0 +1,12 @@
+0.1
+--------------
+- 2007-11-15 -
+--------------
+.: Add CHANGELOG
+
+--------------
+- 2007-11-14 -
+--------------
+.: Upload all file - project init
+.: Test ctrl2poscar.awk
+
