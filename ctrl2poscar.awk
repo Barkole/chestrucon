@@ -34,7 +34,8 @@
 # * Triclinic
 
 # Version:
-# * 0.0.0.4: 2007-11-11 - Fixing atom vectors (usage of invert matrix) (mad), tested and proved for cubic systems by (rr)
+# * 0.1.0.1: 2007-11-20 - Add missing matrix transpose (mad)
+# * 0.1.0.0: 2007-11-11 - Fixing atom vectors (usage of invert matrix) (mad), tested and proved for cubic systems by (rr)
 # * 0.0.0.3: 2007-11-08 - Fixing counting (mad)
 # * 0.0.0.2: 2007-11-08 - Portation to awk (mad) - needs only < 0.03 seconds instead of 0.5-2.0 seconds
 # * 0.0.0.1: 2007-10-11 - First running version - bash script (mad)
@@ -80,6 +81,7 @@ BEGIN {
 	# 3,1 3,2 3,3
 	value_coord_matrix[1,1] = 0;
 	value_inv_coord_matrix[1,1] = 0;
+	value_inv_trans_coord_matrix[1,1] = 0;
 
 	# Outputs
 	output_atomcoordinates_counter = 1;
@@ -132,6 +134,13 @@ BEGIN {
 	value_inv_coord_matrix[3,1] = (value_coord_matrix[2,1]*value_coord_matrix[3,2] - value_coord_matrix[2,2]*value_coord_matrix[3,1])/det_matrix;
 	value_inv_coord_matrix[3,2] = (value_coord_matrix[1,2]*value_coord_matrix[3,1] - value_coord_matrix[1,1]*value_coord_matrix[3,2])/det_matrix;
 	value_inv_coord_matrix[3,3] = (value_coord_matrix[1,1]*value_coord_matrix[2,2] - value_coord_matrix[1,2]*value_coord_matrix[2,1])/det_matrix;
+
+	# transpose matrix
+	for (i=1; i<4; i++) {
+		for (j=1; j<4; j++) {
+			value_inv_trans_coord_matrix[j,i] = value_inv_coord_matrix[i,j];
+		}
+	}
 }
 
 ## Predoings on every line
@@ -215,7 +224,7 @@ current_state  ==  def_state_site {
 	for (i=1; i<4; i++) {
 		output_atomcoordinates[output_atomcoordinates_counter,i] = 0;
 		for (j=1; j<4; j++) {
-			output_atomcoordinates[output_atomcoordinates_counter,i] += value_inv_coord_matrix[i,j]*atom_vector[j];
+			output_atomcoordinates[output_atomcoordinates_counter,i] += value_inv_trans_coord_matrix[i,j]*atom_vector[j];
 		}
 	}
 	output_atomcoordinates_counter++;
