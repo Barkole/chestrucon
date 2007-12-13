@@ -227,6 +227,7 @@ current_state  ==  def_state_site {
 			output_atomcoordinates[output_atomcoordinates_counter,i] += value_inv_trans_coord_matrix[i,j]*atom_vector[j];
 		}
 	}
+	# Print atom coordnate at end, because I need information how many atom of similar kind available. This information is only available, AFTER parsing all "old" atom coordinates
 	output_atomcoordinates_counter++;
 }
 

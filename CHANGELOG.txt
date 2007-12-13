@@ -1,3 +1,10 @@
+--------------
+- 2007-11-20 -
+--------------
+.: Add missing matrix transpose
+.: Restructure project (add trunk, tags, branches)
+
+
 0.1
 --------------
 - 2007-11-15 -
