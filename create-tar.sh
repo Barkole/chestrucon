@@ -1,2 +1,3 @@
 #/bin/bash
-tar -czvf converter.tar.gz --exclude=converter.tar.gz *
+rm converter.tar.gz
+tar -czvf converter.tar.gz --exclude=*~ *
