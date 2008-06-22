@@ -16,10 +16,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Authors:
-# * Rebecca Roemer (rr) <http://fantasia-fuoco.de>
+# * Rebecca Roemer (rr) 
 # * Michael Decker (mad) <http://Inspire-Mind.de>
 
 # Version:
+# * 0.0.0.4: 2008-04-17 - remove bug for angle of unit cell calculation for scaling factors other than 1.000000
 # * 0.0.0.3: 2008-03-23 - generalization for varaiable number of atom sorts (mad)
 # * 0.0.0.2: 2008-03-18 - include scaling factor in calculation of unit cell latice (rr)
 # * 0.0.0.1: 2007-11-11 - Only working for CONTCARs containing one, two and three atom sorts and scaling factor 1.000000 for matrix (rr)
@@ -38,6 +39,11 @@ BEGIN { #setting different variables
         axis[1] = 0 ; # a-axis
         axis[2] = 0 ; # b-axis
         axis[3] = 0 ; # c-axis
+        
+        #norm (ger. Betrag) for a-, b, und c-vector
+        betrag[1] = 0 ; # norm a-vector
+        betrag[2] = 0 ; # norm b-vector
+        betrag[3] = 0 ; # norm c-vector
 
         # values needed for calculation of cell parameters
         cosin[1] = 0 ; # cos(alpha)
@@ -113,6 +119,10 @@ myLineCounter == 4 {
                      axis[1] = (((scale[1]*$1)^2 + (scale[1]*$2)^2 + (scale[1]*$3)^2)^(1/2)) ; 
                       } 
 
+myLineCounter == 4 {
+                     betrag[1] = ((($1)^2 + ($2)^2 + ($3)^2)^(1/2)) ;
+                      }
+
 # Choose according to your awk (** or ^ for "to the power of")
 # myLineCounter == 4 {  
 #                      axis[1] = (((scale[1]*$1)**2 + (scale[1]*$2)**2 + (scale[1]*$3)**2)**(1/2)) ; 
@@ -133,6 +143,10 @@ myLineCounter == 5 {
                       axis[2] = (((scale[1]*$1)^2 + (scale[1]*$2)^2 + (scale[1]*$3)^2)^(1/2)) ; 
                        }
 
+myLineCounter == 5 {
+                     betrag[2] = ((($1)^2 + ($2)^2 + ($3)^2)^(1/2)) ;
+                      }
+
 myLineCounter == 5 { 
                       b[1] = $1 ;
                       b[2] = $2 ;
@@ -148,6 +162,10 @@ myLineCounter == 6 {
                       axis[3] = (((scale[1]*$1)^2 + (scale[1]*$2)^2 + (scale[1]*$3)^2)^(1/2)) ;
                        }
 
+myLineCounter == 6 {
+                     betrag[3] = ((($1)^2 + ($2)^2 + ($3)^2)^(1/2)) ;
+                      }
+
 myLineCounter == 6 { 
                       c[1] = $1 ;
                       c[2] = $2 ;
@@ -155,9 +173,9 @@ myLineCounter == 6 {
                        }
 
 myLineCounter == 6 {  
-                      cosin[1] = ((b[1] * c[1] + b[2] * c[2] + b[3] * c[3]) / (axis[2] * axis[3]));
-                      cosin[2] = ((a[1] * c[1] + a[2] * c[2] + a[3] * c[3]) / (axis[1] * axis[3]));
-                      cosin[3] = ((b[1] * a[1] + b[2] * a[2] + b[3] * a[3]) / (axis[2] * axis[1]));
+                      cosin[1] = ((b[1] * c[1] + b[2] * c[2] + b[3] * c[3]) / (betrag[2] * betrag[3]));
+                      cosin[2] = ((a[1] * c[1] + a[2] * c[2] + a[3] * c[3]) / (betrag[1] * betrag[3]));
+                      cosin[3] = ((b[1] * a[1] + b[2] * a[2] + b[3] * a[3]) / (betrag[2] * betrag[1]));
                        }
 
 myLineCounter == 6 { 
