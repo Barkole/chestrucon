@@ -16,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Authors:
-# * Rebecca Roemer (rr) 
+# * Rebecca Roemer (rr) <http://fantasia-fuoco.de>
 # * Michael Decker (mad) <http://Inspire-Mind.de>
 
 # Version:
